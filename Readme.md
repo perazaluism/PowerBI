@@ -1,4 +1,4 @@
-# 📚 Power BI & Fabric: Guía de Referencia (Vanguardia)
+# 📚 Power BI & Fabric: Guía de Referencia
 
 Este repositorio centraliza los estándares técnicos, formatos de última generación y mejores prácticas para el desarrollo profesional de soluciones de Analytics Engineering con Microsoft Fabric y Power BI.
 
@@ -26,6 +26,7 @@ Para garantizar la integridad del modelo y una experiencia de usuario profesiona
 | Propiedad | Descripción Escueta | Ejemplo de Sintaxis |
 | :--- | :--- | :--- |
 | **measure** | Declaración y DAX (Misma línea). | `measure 'Ventas' = SUM('Sales'[Amount])` |
+Las propiedades que se muestran a continuación deben estar identadas un nivel más que la medida:
 | **formatString** | Máscara de formato estática. | `formatString: #,0.00 €` |
 | **formatStringDefinition** | Expresión DAX para formato dinámico. | `formatStringDefinition = [FormatoVar]` |
 | **displayFolder** | Carpeta jerárquica (usar `\` para niveles). | `displayFolder: "Finanzas\KPIs"` |
@@ -34,15 +35,6 @@ Para garantizar la integridad del modelo y una experiencia de usuario profesiona
 | **lineageTag** | ID único persistente (GUID de trazabilidad). | `lineageTag: a1b2c3d4-e5f6...` |
 | **dataCategory** | Categoría de datos (ej. ImageUrl, WebUrl). | `dataCategory: ImageUrl` |
 | **annotations** | Metadatos para herramientas externas. | `annotation PBI_Pro = ["Format"]` |
-
----
-
-## ⚙️ 3. Configuración de Entorno y Git
-La profesionalización del flujo de trabajo requiere herramientas de edición externa y reglas de exclusión de datos.
-
-* **Visual Studio Code:** Editor recomendado para manipulación masiva de archivos `.tmdl`.
-* **Filtros de Git (.gitignore):** Imprescindible para excluir temporales (`*.pbi`, `*.temp`) y caché de datos locales, garantizando que solo el código (metadatos) se sincronice.
-* **README.md:** Manual de estándares y punto de entrada al repositorio.
 
 ---
 
