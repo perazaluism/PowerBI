@@ -1,4 +1,4 @@
-# 📚 Power BI & Fabric: Guía de Referencia
+# 📚 Power BI & Fabric: Guía de Referencia (Vanguardia)
 
 Este repositorio centraliza los estándares técnicos, formatos de última generación y mejores prácticas para el desarrollo profesional de soluciones de Analytics Engineering con Microsoft Fabric y Power BI.
 
@@ -26,7 +26,6 @@ Para garantizar la integridad del modelo y una experiencia de usuario profesiona
 | Propiedad | Descripción Escueta | Ejemplo de Sintaxis |
 | :--- | :--- | :--- |
 | **measure** | Declaración y DAX (Misma línea). | `measure 'Ventas' = SUM('Sales'[Amount])` |
-Las propiedades que se muestran a continuación deben estar identadas un nivel más que la medida:
 | **formatString** | Máscara de formato estática. | `formatString: #,0.00 €` |
 | **formatStringDefinition** | Expresión DAX para formato dinámico. | `formatStringDefinition = [FormatoVar]` |
 | **displayFolder** | Carpeta jerárquica (usar `\` para niveles). | `displayFolder: "Finanzas\KPIs"` |
@@ -37,5 +36,39 @@ Las propiedades que se muestran a continuación deben estar identadas un nivel m
 | **annotations** | Metadatos para herramientas externas. | `annotation PBI_Pro = ["Format"]` |
 
 ---
+
+## ⚙️ 3. Configuración de Entorno y Git
+La profesionalización del flujo de trabajo requiere herramientas de edición externa y reglas de exclusión de datos.
+
+* **Visual Studio Code:** Editor recomendado para manipulación masiva de archivos `.tmdl`.
+* **Filtros de Git (.gitignore):** Imprescindible para excluir temporales (`*.pbi`, `*.temp`) y caché de datos locales, garantizando que solo el código (metadatos) se sincronice.
+* **README.md:** Manual de estándares y punto de entrada al repositorio.
+
+---
+
+## 🚀 3. Grupos de Cálculo (Calculation Groups)
+Es la funcionalidad de mayor valor en TMDL para optimizar modelos complejos. Permite aplicar lógica dinámica (ej. Inteligencia de Tiempo) a cualquier medida mediante la función `SELECTEDMEASURE()`.
+
+### 3.1. Ejemplo de Estructura TMDL con Comentarios Técnicos
+Un Grupo de Cálculo requiere definir ítems lógicos y columnas de sistema para su funcionamiento:
+
+```tmdl
+table 'Inteligencia de Tiempo'
+    calculationGroup
+        precedence: 1          // Define el orden de ejecución si hay múltiples grupos de cálculo
+
+        calculationItem 'Actual' = SELECTEDMEASURE()
+
+        calculationItem 'YTD' = CALCULATE(SELECTEDMEASURE(), DATESYTD('Calendario'[Fecha]))
+
+    column 'Cálculo'
+        dataType: string
+        sourceColumn: Name
+        sortByColumn: Ordinal  // Vincula el nombre con el orden numérico de visualización
+
+    column Ordinal
+        dataType: int64
+        isHidden               // Columna oculta que evita el ordenamiento alfabético
+        sourceColumn: Ordinal
 
 *Última actualización: Marzo 2026*
