@@ -1,8 +1,4 @@
-# 📚 Power BI & Fabric: Guía de Referencia (Vanguardia)
-
-Este repositorio centraliza los estándares técnicos, formatos de última generación y mejores prácticas para el desarrollo profesional de soluciones de Analytics Engineering con Microsoft Fabric y Power BI.
-
----
+# 📚 PBIP y TMDL
 
 ## 🏗️ 1. Estándares de Proyecto (.PBIP)
 El formato **Power BI Project (.pbip)** permite la separación de metadatos y el control de versiones, fundamental para entornos de desarrollo colaborativos.
