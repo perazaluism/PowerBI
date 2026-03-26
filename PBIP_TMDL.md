@@ -25,8 +25,6 @@ Para garantizar la integridad del modelo y una experiencia de usuario profesiona
 | :--- | :--- | :--- |
 | **measure** | Declaración y DAX (Misma línea). | `measure 'Ventas' = SUM('Sales'[Amount])` |
 
----
-
 Las siguientes propiedades necesitan de un nivel de identación más:
 | | | |
 | :--- | :--- | :--- |
