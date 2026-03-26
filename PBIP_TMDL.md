@@ -1,5 +1,7 @@
 # 📚 PBIP y TMDL
 
+---
+
 ## 🏗️ 1. Estándares de Proyecto (.PBIP)
 El formato **Power BI Project (.pbip)** permite la separación de metadatos y el control de versiones, fundamental para entornos de desarrollo colaborativos.
 
@@ -22,6 +24,8 @@ Para garantizar la integridad del modelo y una experiencia de usuario profesiona
 | Propiedad | Descripción Escueta | Ejemplo de Sintaxis |
 | :--- | :--- | :--- |
 | **measure** | Declaración y DAX (Misma línea). | `measure 'Ventas' = SUM('Sales'[Amount])` |
+| :--- | :--- | :--- |
+Las siguientes propiedades necesitan de un nivel de identación más:
 | **formatString** | Máscara de formato estática. | `formatString: #,0.00 €` |
 | **formatStringDefinition** | Expresión DAX para formato dinámico. | `formatStringDefinition = [FormatoVar]` |
 | **displayFolder** | Carpeta jerárquica (usar `\` para niveles). | `displayFolder: "Finanzas\KPIs"` |
