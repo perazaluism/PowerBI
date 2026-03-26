@@ -39,15 +39,6 @@ Las siguientes propiedades necesitan de un nivel de identación más:
 
 ---
 
-## ⚙️ 3. Configuración de Entorno y Git
-La profesionalización del flujo de trabajo requiere herramientas de edición externa y reglas de exclusión de datos.
-
-* **Visual Studio Code:** Editor recomendado para manipulación masiva de archivos `.tmdl`.
-* **Filtros de Git (.gitignore):** Imprescindible para excluir temporales (`*.pbi`, `*.temp`) y caché de datos locales, garantizando que solo el código (metadatos) se sincronice.
-* **README.md:** Manual de estándares y punto de entrada al repositorio.
-
----
-
 ## 🚀 3. Grupos de Cálculo (Calculation Groups)
 Es la funcionalidad de mayor valor en TMDL para optimizar modelos complejos. Permite aplicar lógica dinámica (ej. Inteligencia de Tiempo) a cualquier medida mediante la función `SELECTEDMEASURE()`.
 
