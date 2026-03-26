@@ -28,6 +28,8 @@ Para garantizar la integridad del modelo y una experiencia de usuario profesiona
 ---
 
 Las siguientes propiedades necesitan de un nivel de identación más:
+| | | |
+| :--- | :--- | :--- |
 | **formatString** | Máscara de formato estática. | `formatString: #,0.00 €` |
 | **formatStringDefinition** | Expresión DAX para formato dinámico. | `formatStringDefinition = [FormatoVar]` |
 | **displayFolder** | Carpeta jerárquica (usar `\` para niveles). | `displayFolder: "Finanzas\KPIs"` |
